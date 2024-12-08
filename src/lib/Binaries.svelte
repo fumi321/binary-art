@@ -1,14 +1,26 @@
 <script lang="ts">
   import Binary, { type Cell } from "./Binary.svelte";
 
+  const CELL_SIZE = {
+    width: 20,
+    height: 24,
+  } as const;
+
+  const calculateGrid = () => {
+    return {
+      rows: Math.floor(window.innerHeight / CELL_SIZE.height),
+      cols: Math.floor(window.innerWidth / CELL_SIZE.width),
+    };
+  };
+
   let cells = $state<Cell[]>([]);
-  let rows = $state<number>(Math.floor(window.innerHeight / 24));
-  let cols = $state<number>(Math.floor(window.innerWidth / 20));
+  let { rows, cols } = $state(calculateGrid());
   let total = $derived<number>(rows * cols);
 
   const resizeHandler = () => {
-    rows = Math.floor(window.innerHeight / 24);
-    cols = Math.floor(window.innerWidth / 20);
+    const grid = calculateGrid();
+    rows = grid.rows;
+    cols = grid.cols;
   };
 
   const initializeCells = (): Cell[] => {
