@@ -40,13 +40,9 @@
     };
   };
 
-  const updateCells = (cells: Cell[]): Cell[] => {
-    return cells.map((cell) => randomizeCell(cell));
-  };
-
   $effect(() => {
     cells = initializeCells();
-    const interval = setInterval(() => (cells = updateCells(cells)), 100);
+    const interval = setInterval(() => (cells = cells.map(randomizeCell)), 100);
     return () => clearInterval(interval);
   });
 </script>
