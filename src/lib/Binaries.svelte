@@ -42,7 +42,7 @@
 
   $effect(() => {
     cells = initializeCells();
-    const interval = setInterval(() => (cells = cells.map(randomizeCell)), 100);
+    const interval = setInterval(() => (cells = cells.map(randomizeCell)), 200);
     return () => clearInterval(interval);
   });
 </script>
