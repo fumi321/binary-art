@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class="text-center duration-1000 transition-[color] select-none font-mono"
+  class="text-center duration-500 transition-[color] select-none font-mono"
   style="color: rgba(0, 255, 0, {opacity}); transition-delay: {delay}s"
 >
   {value}
