@@ -27,7 +27,7 @@
 
   $effect(() => {
     initializeNumbers();
-    const interval = setInterval(updateNumbers, 500);
+    const interval = setInterval(updateNumbers, 100);
     return () => clearInterval(interval);
   });
 </script>
