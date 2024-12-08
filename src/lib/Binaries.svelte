@@ -17,11 +17,7 @@
   let { rows, cols } = $state(calculateGrid());
   let total = $derived<number>(rows * cols);
 
-  const resizeHandler = () => {
-    const grid = calculateGrid();
-    rows = grid.rows;
-    cols = grid.cols;
-  };
+  const resizeHandler = () => ({ rows, cols } = calculateGrid());
 
   const initializeCells = (): Cell[] => {
     return Array(total)
